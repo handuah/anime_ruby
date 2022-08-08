@@ -1,2 +1,28 @@
-<h1>Anime</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1 class="d-flex align-items-center justify-content-center">Anime</h1>
+
+ 
+<% @all_anime.each do |anime| %>
+   <div class="container">
+         <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                <%= image_tag anime["attributes"]["posterImage"]["original"] , class: "img-fluid rounded-start"%>
+                </div>
+                <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title"></span><%= anime["attributes"]["titles"]["en_jp"] %></h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+                </div>
+            </div>
+        </div>
+   </div>
+<% end %> 
+
+<%
+=begin%>
+ <%= @all_anime["attributes"]["titles"].inspect %> 
+<%
+=end%>
+

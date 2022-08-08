@@ -12,6 +12,7 @@ gem "jbuilder"
 #gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 gem 'tzinfo-data', '~> 1.2022', '>= 1.2022.1'
+gem 'httparty', '~> 0.20.0'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
