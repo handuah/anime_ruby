@@ -1,3 +1,5 @@
+#https://kitsu.io/api/edge/anime
+
 require 'httparty'
 #class AnimeList < ApplicationRecord
 class AnimeList 
