@@ -193,6 +193,8 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
+    tzinfo-data (1.2022.1)
+      tzinfo (>= 1.0.0)
     web-console (4.2.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -217,7 +219,7 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
-  importmap-rails
+  importmap-rails (~> 1.1)
   jbuilder
   puma (~> 5.0)
   rails (~> 7.0.3, >= 7.0.3.1)
@@ -226,7 +228,7 @@ DEPENDENCIES
   sqlite3 (~> 1.4)
   stimulus-rails
   turbo-rails
-  tzinfo-data
+  tzinfo-data (~> 1.2022, >= 1.2022.1)
   web-console
   webdrivers
 
