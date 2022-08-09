@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'home#index'
+  get 'home/details_show'
   get 'home/second_page'
   get 'home/third_page'
   get 'home/fourth_page'
