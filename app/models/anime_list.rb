@@ -31,6 +31,22 @@ class AnimeList
         get_second_page.parsed_response
     end
 
+    def get_third_page 
+        self.class.get('/anime/?page[limit]=10&page[offset]=20')
+    end
+
+    def third_page_json
+        get_third_page.parsed_response
+    end
+
+    def get_fourth_page 
+        self.class.get('/anime/?page[limit]=10&page[offset]=30')
+    end
+
+    def fourth_page_json
+        get_fourth_page.parsed_response
+    end
+
 end
 
 # p AnimeList.new.all_anime_json["data"]
