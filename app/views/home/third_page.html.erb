@@ -1,7 +1,7 @@
 <h2 class="d-flex align-items-center justify-content-center">Anime List</h2>
 
 
-<% @all_anime2.each do |anime| %>
+<% @all_anime3.each do |anime| %>
       <div class="container">
             <div class="container">
                 <div class="card mb-3" >
@@ -32,10 +32,10 @@
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-end">
                 <li class="page-item">
-                    <%= link_to "Previous", root_path , class: "page-link" %>
+                    <%= link_to "Previous", home_second_page_path , class: "page-link" %>
                 </li>
                 <li class="page-item">
-                    <%= link_to "Next", home_third_page_path , class: "page-link" %>
+                    <%= link_to "Next", home_fourth_page_path , class: "page-link" %>
                 </li>
             </ul>
         </nav>
