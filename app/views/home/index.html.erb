@@ -20,7 +20,7 @@
                                         <span class="badge text-bg-secondary"><%= anime["attributes"]["subtype"] %></span>
                                     </p>
                                       <div class="d-flex justify-content-end">
-                                        <%= link_to "View More", {:controller => "home", :action => "index", :id => anime["id"] }, class: "btn btn-info" %>
+                                        <%= link_to "View More", {:controller => "home", :action => "details_show", :id => anime["id"] }, class: "btn btn-info" %>
                                     </div>
                                 </div>
                             </div>
