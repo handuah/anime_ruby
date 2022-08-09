@@ -1,3 +1,19 @@
-<h1>
-  <%= @specific_anime.inspect %>
-</h1>
+<%= image_tag @specific_anime["attributes"]["coverImage"]["large"], 
+  style: "height: 200px; width: 100%;" %>
+
+<h4 class="d-flex align-items-center justify-content-center my-3">
+    <%= @specific_anime["attributes"]["titles"]["en_jp"] %>
+</h4>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <p class="fw-bold">Description:</p>
+        </div>
+        <div class="col-md-9">
+            <p class="fw-normal fs-10">
+                <%= @specific_anime["attributes"]["description"] %>
+            </p>
+        </div>
+    </div>
+</div>
