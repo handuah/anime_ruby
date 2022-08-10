@@ -1,7 +1,7 @@
-<h2 class="d-flex align-items-center justify-content-center">Anime List</h2>
 
-
-<% @all_anime3.each do |anime| %>
+ <div style="min-height: 800px" class="mt-5 mb-5">
+ <h1 class="d-flex align-items-center justify-content-center">Anime</h1>
+ <% @all_anime3.each do |anime| %>
       <div class="container">
             <div class="container">
                 <div class="card mb-3" >
@@ -20,6 +20,9 @@
                                         <span class="badge text-bg-primary mr-2"><%= anime["attributes"]["ageRating"] %></span>
                                         <span class="badge text-bg-secondary"><%= anime["attributes"]["subtype"] %></span>
                                     </p>
+                                      <div class="d-flex justify-content-end">
+                                        <%= link_to "View More", {:controller => "home", :action => "details_show", :id => anime["id"] }, class: "btn btn-info" %>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -27,10 +30,10 @@
                 </div>
             </div>
       </div>
-     <% end %>
+    <% end %>
     <div class="container">
         <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-end">
+            <ul class="pagination justify-content-end pb-4">
                 <li class="page-item">
                     <%= link_to "Previous", home_second_page_path , class: "page-link" %>
                 </li>
@@ -39,4 +42,6 @@
                 </li>
             </ul>
         </nav>
+    </div>
+
     </div>
