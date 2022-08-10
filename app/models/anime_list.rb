@@ -47,18 +47,6 @@ class AnimeList
         get_fourth_page.parsed_response
     end
 
-    # def get_specific_details
-    #     @anime_first = AnimeList.new.get_first_page["data"]
-
-    #     for anime in @anime_first
-    #         @anime_id = anime["id"]
-    #         #self.class.get("/anime/#{@anime_id}") 
-    #         #p "https://kitsu.io/api/edge/anime/#{@anime_id}"
-    #     end
-    #     p self.class.get("/anime/#{@anime_id}") 
-
-    # end
-
     def get_specific_details_json
         get_specific_details.parsed_response
     end
