@@ -1,5 +1,11 @@
-<%= image_tag @specific_anime["attributes"]["coverImage"]["large"], 
-  style: "height: 240px; width: 100%;" , class: "mt-5"%>
+ <% if @specific_anime["attributes"]["coverImage"].blank? %>
+    <div  style= "height: 240px; width: 100%; background-color: grey" , class= "mt-5"></div>
+<% else %>
+    <%= image_tag @specific_anime["attributes"]["coverImage"]["large"], 
+        style: "height: 240px; width: 100%;" , class: "mt-5"%>
+<% end %>
+
+
 
 <h4 class="d-flex align-items-center justify-content-center my-3">
     <%= @specific_anime["attributes"]["titles"]["en_jp"] %>
@@ -23,7 +29,11 @@
         <div class="col-md-9">
             <p class="fw-normal fs-10">
                 <%= @specific_anime["attributes"]["startDate"].to_time.strftime("%B %d, %Y") %> to 
-                <%= @specific_anime["attributes"]["endDate"].to_time.strftime("%B %d, %Y") %>
+                <% if @specific_anime["attributes"]["endDate"].blank? %>
+                    <span class="fw-bold">N/A</span>
+                <% else %>
+                   <%= @specific_anime["attributes"]["endDate"].to_time.strftime("%B %d, %Y") %>
+                <% end %>
             </p>
         </div>
     </div>
@@ -33,7 +43,7 @@
         </div>
         <div class="col-md-9">
             <p class="fw-normal fs-10">
-                <span class="badge text-bg-secondary"><%=  @specific_anime["attributes"]["subtype"] %></span>
+                <span class="badge text-bg-secondary"><%=  @specific_anime["attributes"]["subtype"].upcase %></span>
                 <span class="badge text-bg-primary mr-2"><%=  "#{@specific_anime["attributes"]["ageRating"]} (#{@specific_anime["attributes"]["ageRatingGuide"]})" %></span>
                 <span class="badge text-bg-warning"><%=  @specific_anime["attributes"]["status"].capitalize %></span>
             </p>
@@ -45,7 +55,12 @@
         </div>
         <div class="col-md-9">
             <p class="fw-normal fs-10">
-                <span class="badge text-bg-success"><%=  @specific_anime["attributes"]["episodeCount"] %></span>
+                <% if @specific_anime["attributes"]["episodeCount"].blank? %>
+                    <span class="badge text-bg-success">N/A</span>
+                <% else %>
+                   <span class="badge text-bg-success"><%=  @specific_anime["attributes"]["episodeCount"] %></span>
+                <% end %>
+                
             </p>
         </div>
     </div>
