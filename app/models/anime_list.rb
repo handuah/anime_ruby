@@ -64,12 +64,3 @@ class AnimeList
     end
 
 end
-
-# p AnimeList.new.all_anime_json["data"]
-
-p AnimeList.new.get_specific_details
-
-# AnimeList.new.get_first_page["data"].each do |poke_name|
-#     @pokemon_reference_name = poke_name["name"]  
-#      p "https://pokeapi.co/api/v2/pokemon/#{@pokemon_reference_name}" 
-# end
