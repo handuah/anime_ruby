@@ -84,16 +84,19 @@
             <h5>Reviews</h5>
         </div>
         <div class="card-body text-dark">
-            <% for review in @specific_review do %>
+            <% @specific_review.each_with_index do |review, index|%>
                 <p>
                     <a class="btn btn-outline-primary" data-bs-toggle="collapse" 
-                        href="#Example<%= review["id"] %>"  role="button" aria-expanded="false" aria-controls="#Example<%= review["id"] %>">
-                        <%= review["attributes"]["source"] %>
+                        href="#Example<%= review["id"] %>"  role="button" aria-expanded="false" 
+                        aria-controls="#Example<%= review["id"] %>">
+                        Review : <%= index + 1 %>
                     </a>
                 </p>
                 <div class="collapse" id="Example<%= review["id"] %>">
                     <div class="card card-body mb-3">
                         <%= review["attributes"]["content"] %>
+                        <%= HTTParty.get("https://kitsu.io/api/edge/reviews/#{review["id"]}/user")
+                        .parsed_response["data"]["attributes"]["name"]%>                        
                     </div>
                 </div>
             <% end %>
