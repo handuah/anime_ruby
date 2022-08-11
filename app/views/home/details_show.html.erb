@@ -11,7 +11,7 @@
     <%= @specific_anime["attributes"]["titles"]["en_jp"] %>
 </h4>
 
-<div class="container", style="min-height: 500px">
+<div class="container", style="min-height: 22rem">
     <div class="row">
         <div class="col-md-3">
             <p class="fw-bold">Description:</p>
@@ -76,4 +76,27 @@
             <% end %>
         </div>
      </div>
+</div>
+
+<div class="container">
+    <div class="card border-light my-3" style="max-width: 100%">
+        <div class="card-header d-flex align-items-center justify-content-center">
+            <h5>Reviews</h5>
+        </div>
+        <div class="card-body text-dark">
+            <% for review in @specific_review do %>
+                <p>
+                    <a class="btn btn-outline-primary" data-bs-toggle="collapse" 
+                        href="#Example<%= review["id"] %>"  role="button" aria-expanded="false" aria-controls="#Example<%= review["id"] %>">
+                        <%= review["attributes"]["source"] %>
+                    </a>
+                </p>
+                <div class="collapse" id="Example<%= review["id"] %>">
+                    <div class="card card-body mb-3">
+                        <%= review["attributes"]["content"] %>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
 </div>
