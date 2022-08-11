@@ -94,9 +94,19 @@
                 </p>
                 <div class="collapse" id="Example<%= review["id"] %>">
                     <div class="card card-body mb-3">
-                        <%= review["attributes"]["content"] %>
-                        <%= HTTParty.get("https://kitsu.io/api/edge/reviews/#{review["id"]}/user")
-                        .parsed_response["data"]["attributes"]["name"]%>                        
+                        <div> 
+                            <% if HTTParty.get("https://kitsu.io/api/edge/reviews/#{review["id"]}/user")
+                                .parsed_response["data"]["attributes"]["avatar"].blank? %>
+                                <div class="bg-secondary" style="width: 3rem; height: 3rem; border-radius: 50%"></div>
+                            <% else %>
+                                <%= image_tag HTTParty.get("https://kitsu.io/api/edge/reviews/#{review["id"]}/user")
+                                .parsed_response["data"]["attributes"]["avatar"]["medium"], 
+                                style: "height: 100px; width: 100px;" , class: "mt-1 rounded-circle border-info"%>
+                            <% end %>                           
+                            <p class="fw-bold"><%= HTTParty.get("https://kitsu.io/api/edge/reviews/#{review["id"]}/user")
+                            .parsed_response["data"]["attributes"]["name"]%></p>
+                        </div>
+                        <p><%= review["attributes"]["content"] %></p>                        
                     </div>
                 </div>
             <% end %>
