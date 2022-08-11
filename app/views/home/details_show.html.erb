@@ -94,19 +94,29 @@
                 </p>
                 <div class="collapse" id="Example<%= review["id"] %>">
                     <div class="card card-body mb-3">
-                        <div> 
-                            <% if HTTParty.get("https://kitsu.io/api/edge/reviews/#{review["id"]}/user")
-                                .parsed_response["data"]["attributes"]["avatar"].blank? %>
-                                <div class="bg-secondary" style="width: 3rem; height: 3rem; border-radius: 50%"></div>
-                            <% else %>
-                                <%= image_tag HTTParty.get("https://kitsu.io/api/edge/reviews/#{review["id"]}/user")
-                                .parsed_response["data"]["attributes"]["avatar"]["medium"], 
-                                style: "height: 100px; width: 100px;" , class: "mt-1 rounded-circle border-info"%>
-                            <% end %>                           
-                            <p class="fw-bold"><%= HTTParty.get("https://kitsu.io/api/edge/reviews/#{review["id"]}/user")
-                            .parsed_response["data"]["attributes"]["name"]%></p>
+                        <div class = "row g-0">
+                            <div class="col-md-2"> 
+                                <% if HTTParty.get("https://kitsu.io/api/edge/reviews/#{review["id"]}/user")
+                                    .parsed_response["data"]["attributes"]["avatar"].blank? %>
+                                    <div class="bg-secondary" style="width: 3rem; height: 3rem; border-radius: 50%"></div>
+                                <% else %>
+                                    <%= image_tag HTTParty.get("https://kitsu.io/api/edge/reviews/#{review["id"]}/user")
+                                    .parsed_response["data"]["attributes"]["avatar"]["medium"], 
+                                    style: "height: 100px; width: 100px;" , class: "mt-1 rounded-circle border-info"%>
+                                <% end %>                           
+                                <p class="fw-bold d-flex align-items-center justify-content-start">
+                                    <%= HTTParty.get("https://kitsu.io/api/edge/reviews/#{review["id"]}/user")
+                                    .parsed_response["data"]["attributes"]["name"]%></p>
+                                <p class = "text-danger">
+                                   <%= review["attributes"]["likesCount"].to_s %> 
+                                    <i class="fa-solid fa-heart"></i>
+                                </p>
+                            </div>
+                            <div class="col-md-9"> 
+                                <p><%= review["attributes"]["content"] %></p>      
+                            </div>  
                         </div>
-                        <p><%= review["attributes"]["content"] %></p>                        
+                                        
                     </div>
                 </div>
             <% end %>
