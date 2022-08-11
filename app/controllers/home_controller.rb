@@ -14,6 +14,10 @@ class HomeController < ApplicationController
     @specific_genre = HTTParty.get("https://kitsu.io/api/edge/anime/#{
       params[:id]
       }/genres").parsed_response["data"]
+
+    @specific_review = HTTParty.get("https://kitsu.io/api/edge/anime/#{
+      params[:id]
+      }/reviews").parsed_response["data"]
   end 
 
   def second_page
