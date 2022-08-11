@@ -63,5 +63,17 @@
                 
             </p>
         </div>
-    </div>
+     </div>
+     <div class="row">
+        <div class="col-md-3">
+            <p class="fw-bold">Genres:</p>
+        </div>
+        <div class="col-md-9"> 
+            <p>
+                <% @specific_genre.each do |genre| %>
+                    <%= genre["attributes"]["name"] %> ,
+                <% end %>
+            </p>
+        </div>
+     </div>
 </div>
