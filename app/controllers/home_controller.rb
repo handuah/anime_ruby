@@ -5,9 +5,6 @@ class HomeController < ApplicationController
     @all_anime = AnimeList.new.first_page_json["data"]    
   end
 
-  # def search
-  #   @result_anime = @all_anime.where("#{@all_anime["attributes"]["titles"]["en_jp"]} LIKE ?", "%" + params[:q] + "%")
-  # end
 
 
   # GET details of each selected anime in list
