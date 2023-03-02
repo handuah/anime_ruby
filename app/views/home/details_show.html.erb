@@ -1,5 +1,11 @@
-<% content_for :title do 'Animeruby | ' + @specific_anime["attributes"]["titles"]["en_jp"] %>
-<% end %>
+<%
+=begin%>
+ <% content_for :title do 'Animeruby | ' + @specific_anime["attributes"]["titles"]["en_jp"] %>
+<% end %> 
+<%
+=end%>
+
+<%= selected_anime_page_title @specific_anime["attributes"]["titles"]["en_jp"] %>
 
  <% if @specific_anime["attributes"]["coverImage"].blank? %>
     <div  style= "height: 240px; width: 100%; background-color: grey" , class= "mt-5"></div>
